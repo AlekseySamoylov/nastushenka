@@ -1,0 +1,31 @@
+databaseChangeLog:
+- preConditions:
+  - runningAs:
+      username: nastushenka
+- changeSet:
+    id: 1
+    author: Aleksey Samoylov
+    changes:
+    - createTable:
+        tableName: userlog
+        columns:
+        - column:
+            name: id
+            type: int
+            autoIncrement: true
+            constraints:
+              primaryKey: true
+              nullable: false
+        - column:
+            name: username
+            type: varchar(50)
+        - column:
+            name: task_name
+            type: varchar(500)
+        - column:
+            name: task_type
+            type: varchar(50)
+        - column:
+            name: task_time
+            type: date
+
