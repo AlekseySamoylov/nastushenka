@@ -1,14 +1,17 @@
 package com.alekseysamoylov.nastushenka.entity
 
-import javax.persistence.GeneratedValue
-import javax.persistence.GenerationType
-import javax.persistence.Id
+import javax.persistence.*
 
-
+@Entity
+@Table(name = "users")
 class User {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   var id: Long? = null
+
+  @Column
   lateinit var username: String
-  lateinit var password: String
+
+  @Column
+  lateinit var password: String // to encrypt
 }

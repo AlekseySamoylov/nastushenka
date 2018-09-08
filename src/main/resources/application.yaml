@@ -6,3 +6,5 @@ spring:
     url: jdbc:postgresql://localhost:15432/nastushenka
     username: nastushenka
     password: secret
+  jpa:
+    show-sql: true

@@ -11,21 +11,14 @@ class Report {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   var id: Long? = null
 
-  @ManyToMany(cascade = [CascadeType.ALL])
-  @JoinTable(
-      name = "user",
-      joinColumns = [JoinColumn(name = "id")],
-      inverseJoinColumns = [JoinColumn(name = "user_id")]
-  )
+  @ManyToOne(cascade = [CascadeType.ALL])
+  @JoinColumn(name = "user_id")
   lateinit var user: User
 
-  @ManyToMany(cascade = [CascadeType.ALL])
-  @JoinTable(
-      name = "task",
-      joinColumns = [JoinColumn(name = "id")],
-      inverseJoinColumns = [JoinColumn(name = "task_id")]
-  )
+  @ManyToOne(cascade = [CascadeType.ALL])
+  @JoinColumn(name = "task_id")
   lateinit var task: Task
 
+  @Column
   lateinit var time: LocalDateTime
 }

@@ -33,7 +33,7 @@ databaseChangeLog:
     author: Aleksey Samoylov
     changes:
     - createTable:
-        tableName: user
+        tableName: users
         columns:
         - column:
             name: id
@@ -118,7 +118,7 @@ databaseChangeLog:
         onDelete: CASCADE
         onUpdate: RESTRICT
         referencedColumnNames: id
-        referencedTableName: user
+        referencedTableName: users
 - changeSet:
     id: add-report-user-id-constraint
     author: liquibase-docs
@@ -132,7 +132,7 @@ databaseChangeLog:
         onDelete: CASCADE
         onUpdate: RESTRICT
         referencedColumnNames: id
-        referencedTableName: user
+        referencedTableName: users
 - changeSet:
     id: add-report-task-id-constraint
     author: liquibase-docs
