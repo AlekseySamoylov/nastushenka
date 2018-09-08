@@ -28,4 +28,122 @@ databaseChangeLog:
         - column:
             name: task_time
             type: date
-
+- changeSet:
+    id: add-user
+    author: Aleksey Samoylov
+    changes:
+    - createTable:
+        tableName: user
+        columns:
+        - column:
+            name: id
+            type: int
+            autoIncrement: true
+            constraints:
+              primaryKey: true
+              nullable: false
+        - column:
+            name: username
+            type: varchar(50)
+            constraints:
+              unique: true
+              nullable: false
+        - column:
+            name: password
+            type: varchar(250)
+            constraints:
+              nullable: false
+- changeSet:
+    id: add-task
+    author: Aleksey Samoylov
+    changes:
+    - createTable:
+        tableName: task
+        columns:
+        - column:
+            name: id
+            type: int
+            autoIncrement: true
+            constraints:
+              primaryKey: true
+              nullable: false
+        - column:
+            name: name
+            type: varchar(500)
+        - column:
+            name: type
+            type: varchar(100)
+        - column:
+            name: status
+            type: varchar(100)
+        - column:
+            name: user_id
+            type: int
+            constraints:
+              nullable: false
+- changeSet:
+    id: add-report
+    author: Aleksey Samoylov
+    changes:
+    - createTable:
+        tableName: report
+        columns:
+        - column:
+            name: id
+            type: int
+            autoIncrement: true
+            constraints:
+              primaryKey: true
+              nullable: false
+        - column:
+            name: user_id
+            type: int
+            constraints:
+              nullable: false
+        - column:
+            name: task_id
+            type: int
+            constraints:
+              nullable: false
+- changeSet:
+    id: add-task-user-id-constraint
+    author: liquibase-docs
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: user_id
+        baseTableName: task
+        constraintName: fk_task_user
+        deferrable: true
+        initiallyDeferred: true
+        onDelete: CASCADE
+        onUpdate: RESTRICT
+        referencedColumnNames: id
+        referencedTableName: user
+- changeSet:
+    id: add-report-user-id-constraint
+    author: liquibase-docs
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: user_id
+        baseTableName: report
+        constraintName: fk_report_user
+        deferrable: true
+        initiallyDeferred: true
+        onDelete: CASCADE
+        onUpdate: RESTRICT
+        referencedColumnNames: id
+        referencedTableName: user
+- changeSet:
+    id: add-report-task-id-constraint
+    author: liquibase-docs
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: task_id
+        baseTableName: report
+        constraintName: fk_report_task
+        deferrable: true
+        initiallyDeferred: true
+        onDelete: CASCADE
+        onUpdate: RESTRICT
+        referencedColumnNames: id
+        referencedTableName: task
