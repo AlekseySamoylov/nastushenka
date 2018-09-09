@@ -14,7 +14,7 @@ class UserController {
   @Autowired
   private lateinit var userService: UserService
 
-  @PostMapping("/login")
+  @PostMapping("login")
   fun login(username: String, password: String): User {
     val user = User()
     user.username = username

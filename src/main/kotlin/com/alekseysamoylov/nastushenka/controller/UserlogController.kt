@@ -16,7 +16,7 @@ class UserlogController {
     @Autowired
     private lateinit var taskRepository: UserlogRepository
 
-    @PostMapping("/userlog")
+  @PostMapping("userlog")
     fun save(@RequestBody task: Userlog) {
         task.taskTime = Date()
         taskRepository.save(task)

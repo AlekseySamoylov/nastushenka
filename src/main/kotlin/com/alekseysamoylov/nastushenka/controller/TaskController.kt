@@ -17,37 +17,37 @@ class TaskController {
   @Autowired
   private lateinit var reportConverter: Converter<Report, ReportStatistic>
 
-  @GetMapping("/all")
+  @GetMapping("all")
   fun getReportStatistic(username: String): List<ReportStatistic> {
     return reportConverter.convert(taskService.findAllReports(username))
   }
 
-  @GetMapping("/week")
+  @GetMapping("week")
   fun getReportStatisticThisWeek(username: String): List<ReportStatistic> {
     return reportConverter.convert(taskService.findAllReportsThisWeek(username))
   }
 
-  @GetMapping("/day")
+  @GetMapping("day")
   fun getReportStatisticThisDay(username: String): List<ReportStatistic> {
     return reportConverter.convert(taskService.findAllReportsToday(username))
   }
 
-  @PostMapping("/task/")
+  @PostMapping("task/")
   fun saveTask(@RequestBody task: Task): List<Task> {
     return taskService.saveTaskAndReturnAll(task)
   }
 
-  @GetMapping("/task/{username}")
+  @GetMapping("task/{username}")
   fun getAllTask(@PathVariable username: String): List<Task> {
     return taskService.findAllTask(username)
   }
 
-  @PostMapping("/task/report")
+  @PostMapping("task/report")
   fun saveReport(@RequestBody report: Report): List<Report> {
     return taskService.saveReportAndReturnTodayOnly(report)
   }
 
-  @GetMapping("/task/report/{taskId}/user/{username}")
+  @GetMapping("task/report/{taskId}/user/{username}")
   fun saveReport(@PathVariable taskId: Long, @PathVariable username: String): List<Report> {
 
     return taskService.saveReportAndReturnTodayOnly(taskId, username)
