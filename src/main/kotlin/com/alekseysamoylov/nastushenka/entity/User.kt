@@ -1,5 +1,6 @@
 package com.alekseysamoylov.nastushenka.entity
 
+import com.fasterxml.jackson.annotation.JsonIgnore
 import javax.persistence.*
 
 @Entity
@@ -12,6 +13,8 @@ class User {
   @Column
   lateinit var username: String
 
+
+  @JsonIgnore
   @Column
-  lateinit var password: String // to encrypt
+  lateinit var password: String
 }

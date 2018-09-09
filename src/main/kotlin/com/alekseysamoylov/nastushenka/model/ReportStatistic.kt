@@ -1,10 +1,9 @@
 package com.alekseysamoylov.nastushenka.model
 
 
-class ReportStatistic {
-  lateinit var name: String
-  var importantUrgent = 0
-  var importantNotUrgent = 0
-  var notImportantUrgent = 0
-  var notImportantNotUrgent = 0
-}
+class ReportStatistic(var name: String = "",
+                      var order: Int = 0,
+                      var importantUrgent: Int = 0,
+                      var importantNotUrgent: Int = 0,
+                      var notImportantUrgent: Int = 0,
+                      var notImportantNotUrgent: Int = 0)

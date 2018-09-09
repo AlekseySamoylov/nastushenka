@@ -27,7 +27,7 @@ databaseChangeLog:
             type: varchar(50)
         - column:
             name: task_time
-            type: date
+            type: timestamp
 - changeSet:
     id: add-user
     author: Aleksey Samoylov
@@ -105,6 +105,9 @@ databaseChangeLog:
             type: int
             constraints:
               nullable: false
+        - column:
+            name: time
+            type: timestamp
 - changeSet:
     id: add-task-user-id-constraint
     author: liquibase-docs
