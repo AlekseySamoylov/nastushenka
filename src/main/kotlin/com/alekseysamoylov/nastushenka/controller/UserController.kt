@@ -5,6 +5,7 @@ import com.alekseysamoylov.nastushenka.service.UserService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.CrossOrigin
 import org.springframework.web.bind.annotation.PostMapping
+import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RestController
 
 @CrossOrigin
@@ -15,10 +16,7 @@ class UserController {
   private lateinit var userService: UserService
 
   @PostMapping("login")
-  fun login(username: String, password: String): User {
-    val user = User()
-    user.username = username
-    user.password = password
+  fun login(@RequestBody user: User): User {
     return userService.getUser(user)
   }
 }
