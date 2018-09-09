@@ -2,8 +2,8 @@ spring:
   application:
     name: nastushenka
   datasource:
-    #    url: jdbc:postgresql://78.155.217.216:5432/nastushenka
-    url: jdbc:postgresql://localhost:15432/nastushenka
+    url: jdbc:postgresql://78.155.217.216:5432/nastushenka
+    #    url: jdbc:postgresql://localhost:15432/nastushenka
     username: nastushenka
     password: secret
   jpa:
