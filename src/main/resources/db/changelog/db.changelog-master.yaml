@@ -27,7 +27,7 @@ databaseChangeLog:
             type: varchar(50)
         - column:
             name: task_time
-            type: timestamp
+            type: date
 - changeSet:
     id: add-user
     author: Aleksey Samoylov
